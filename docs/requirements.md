@@ -1,7 +1,7 @@
-# RecipeVibe - Requirements Document
+# RecipeHub - Requirements Document
 
 ## Project Overview
-RecipeVibe is a cross-platform mobile application built with React Native and Expo that allows users to manage their recipe collection locally on their device.
+RecipeHub is a cross-platform mobile application built with React Native and Expo that allows users to manage their recipe collection locally on their device.
 
 ## Functional Requirements
 

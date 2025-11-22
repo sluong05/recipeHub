@@ -1,24 +1,29 @@
-# RecipeVibe - Architecture Document
+# RecipeHub - Architecture Document
 
 ## Technology Stack
 
 ### Core Technologies
-- **React Native**: Cross-platform mobile framework
-- **Expo**: Development platform and tooling
-- **TypeScript**: Type-safe development
-- **React Navigation**: Navigation management
+- **React Native** `0.81.5`: Cross-platform mobile framework
+- **Expo** `~54.0.0`: Development platform and tooling
+- **TypeScript** `~5.9.2`: Type-safe development
+- **React** `19.1.0`: UI library
+- **React Navigation** `6.1.9`: Navigation management
 
 ### Key Dependencies
-- `@react-navigation/native` - Navigation framework
-- `@react-navigation/stack` - Stack navigator
-- `@react-native-async-storage/async-storage` - Local storage
-- `react-native-gesture-handler` - Touch gesture handling
-- `react-native-screens` - Native screen optimization
+- `@react-navigation/native` `6.1.9` - Navigation framework
+- `@react-navigation/stack` `6.3.20` - Stack navigator
+- `@react-native-async-storage/async-storage` `2.2.0` - Local storage
+- `react-native-gesture-handler` `~2.28.0` - Touch gesture handling
+- `react-native-screens` `~4.16.0` - Native screen optimization
+- `react-native-safe-area-context` `~5.6.0` - Safe area handling
+- `expo-status-bar` `~3.0.8` - Status bar component
 
 ### Development Tools
-- **Jest**: Testing framework
-- **React Native Testing Library**: Component testing
-- **TypeScript**: Static type checking
+- **Jest** `29.7.0`: Testing framework
+- **React Native Testing Library** `12.3.2`: Component testing
+- **TypeScript** `~5.9.2`: Static type checking
+- **Babel** `^7.20.0`: JavaScript transpilation
+- **Babel Preset Expo** `~54.0.0`: Expo Babel configuration
 
 ## Project Structure
 

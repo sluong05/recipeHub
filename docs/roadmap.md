@@ -1,4 +1,4 @@
-# RecipeVibe - Product Roadmap
+# RecipeHub - Product Roadmap
 
 ## Current Status: P0 Complete (MVP)
 

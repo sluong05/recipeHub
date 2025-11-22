@@ -1,4 +1,4 @@
-# RecipeVibe - Quick Start Guide
+# RecipeHub - Quick Start Guide
 
 ## Installation Steps
 
@@ -8,11 +8,13 @@ npm install
 ```
 
 This will install all required packages including:
-- React Native & Expo
-- React Navigation
-- AsyncStorage
-- TypeScript
-- Jest and testing libraries
+- React Native 0.81.5 & Expo SDK 54
+- React 19.1.0
+- React Navigation 6.1.9
+- AsyncStorage 2.2.0
+- TypeScript 5.9.2
+- Jest 29.7.0 and testing libraries
+- Babel Preset Expo 54.0.0
 
 ### 2. Run the App
 
@@ -101,7 +103,7 @@ tests/               # Unit tests
 All files are staged and ready to commit. To commit:
 
 ```bash
-git commit -m "feat: initial RecipeVibe MVP implementation"
+git commit -m "feat: initial RecipeHub MVP implementation"
 git push origin main
 ```
 

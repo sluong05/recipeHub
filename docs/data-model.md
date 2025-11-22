@@ -1,7 +1,7 @@
-# RecipeVibe - Data Model Documentation
+# RecipeHub - Data Model Documentation
 
 ## Overview
-RecipeVibe uses a simple, document-based data model stored in AsyncStorage. All data is stored locally on the device with no backend dependencies in the current version.
+RecipeHub uses a simple, document-based data model stored in AsyncStorage. All data is stored locally on the device with no backend dependencies in the current version.
 
 ---
 

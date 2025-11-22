@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "RecipeVibe",
-    "slug": "recipevibe",
+    "name": "RecipeHub",
+    "slug": "recipehub",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -11,10 +11,10 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.recipevibe.app"
+      "bundleIdentifier": "com.recipehub.app"
     },
     "android": {
-      "package": "com.recipevibe.app"
+      "package": "com.recipehub.app"
     }
   }
 }

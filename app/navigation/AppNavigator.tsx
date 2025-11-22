@@ -33,7 +33,7 @@ export const AppNavigator: React.FC = () => {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: 'RecipeVibe' }}
+          options={{ title: 'RecipeHub' }}
         />
         <Stack.Screen
           name="AddRecipe"

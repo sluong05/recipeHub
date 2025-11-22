@@ -1,4 +1,4 @@
-# RecipeVibe
+# RecipeHub
 
 A modern, cross-platform mobile recipe management app built with React Native and Expo. Store, organize, and manage your favorite recipes locally on your device.
 
@@ -101,27 +101,29 @@ This project follows the **Software Development Life Cycle (SDLC)** and scores w
 ## Tech Stack
 
 ### Core Technologies
-- **React Native** `0.74.0` - Cross-platform mobile framework
-- **Expo** `~51.0.0` - Development platform
-- **TypeScript** `5.1.3` - Type-safe JavaScript
-- **React** `18.2.0` - UI library
+- **React Native** `0.81.5` - Cross-platform mobile framework
+- **Expo** `~54.0.0` - Development platform
+- **TypeScript** `~5.9.2` - Type-safe JavaScript
+- **React** `19.1.0` - UI library
 
 ### Navigation & UI
 - **React Navigation** `6.1.9` - Navigation framework
 - **Stack Navigator** `6.3.20` - Stack-based navigation
-- **React Native Gesture Handler** - Touch gestures
-- **React Native Screens** - Native screen optimization
+- **React Native Gesture Handler** `~2.28.0` - Touch gestures
+- **React Native Screens** `~4.16.0` - Native screen optimization
+- **React Native Safe Area Context** `~5.6.0` - Safe area handling
 
 ### Storage
-- **AsyncStorage** `1.23.1` - Local data persistence
+- **AsyncStorage** `2.2.0` - Local data persistence
 
 ### Testing
 - **Jest** `29.7.0` - Testing framework
 - **React Native Testing Library** `12.3.2` - Component testing
-- **React Test Renderer** `18.2.0` - Test rendering
+- **React Test Renderer** `19.1.0` - Test rendering
 
 ### Development Tools
-- **Babel** - JavaScript transpilation
+- **Babel** `^7.20.0` - JavaScript transpilation
+- **Babel Preset Expo** `~54.0.0` - Expo Babel configuration
 - **TypeScript ESLint** - Code linting (optional)
 
 ---
@@ -129,7 +131,7 @@ This project follows the **Software Development Life Cycle (SDLC)** and scores w
 ## Project Structure
 
 ```
-recipeStorage/
+recipeHub/
 ├── app/                          # Application source code
 │   ├── components/               # Reusable UI components
 │   │   ├── Button.tsx           # Custom button (primary/secondary/danger)
@@ -191,7 +193,7 @@ recipeStorage/
 1. **Clone the repository**
    ```bash
    git clone https://github.com/sluong05/recipeHub.git
-   cd recipeStorage
+   cd recipeHub
    ```
 
 2. **Install dependencies**
