@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "RecipeVibe",
+    "slug": "recipevibe",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#007AFF"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.recipevibe.app"
+    },
+    "android": {
+      "package": "com.recipevibe.app"
+    }
+  }
+}
