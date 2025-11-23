@@ -1,12 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import {
-  View,
-  ScrollView,
-  StyleSheet,
-  Text,
-  Alert,
-  ActivityIndicator,
-} from 'react-native';
+import { View, ScrollView, Text, Alert, ActivityIndicator } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
@@ -85,7 +78,7 @@ export const ViewRecipeScreen: React.FC<ViewRecipeScreenProps> = ({
 
   if (loading) {
     return (
-      <View style={styles.centerContainer}>
+      <View className="flex-1 justify-center items-center bg-gray-100 p-4">
         <ActivityIndicator size="large" color="#007AFF" />
       </View>
     );
@@ -93,134 +86,55 @@ export const ViewRecipeScreen: React.FC<ViewRecipeScreenProps> = ({
 
   if (!recipe) {
     return (
-      <View style={styles.centerContainer}>
-        <Text style={styles.errorText}>Recipe not found</Text>
+      <View className="flex-1 justify-center items-center bg-gray-100 p-4">
+        <Text className="text-lg text-gray-600 mb-4">Recipe not found</Text>
         <Button title="Go Back" onPress={() => navigation.goBack()} />
       </View>
     );
   }
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <Text style={styles.title}>{recipe.title}</Text>
-      <Text style={styles.date}>
+    <ScrollView className="flex-1 bg-gray-100" contentContainerClassName="p-4">
+      <Text className="text-3xl font-bold text-gray-800 mb-2">{recipe.title}</Text>
+      <Text className="text-sm text-gray-600 mb-6">
         Created: {new Date(recipe.createdAt).toLocaleDateString()}
       </Text>
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Ingredients</Text>
+      <View className="mb-6">
+        <Text className="text-xl font-bold text-gray-800 mb-3">Ingredients</Text>
         {recipe.ingredients.map((ingredient, index) => (
-          <View key={ingredient.id} style={styles.ingredientItem}>
-            <Text style={styles.ingredientText}>
+          <View key={ingredient.id} className="bg-white p-3 rounded-lg mb-2">
+            <Text className="text-base text-gray-800">
               {index + 1}. {ingredient.name} - {ingredient.qty} {ingredient.unit}
             </Text>
           </View>
         ))}
       </View>
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Steps</Text>
+      <View className="mb-6">
+        <Text className="text-xl font-bold text-gray-800 mb-3">Steps</Text>
         {recipe.steps.map((step, index) => (
-          <View key={index} style={styles.stepItem}>
-            <Text style={styles.stepNumber}>{index + 1}.</Text>
-            <Text style={styles.stepText}>{step}</Text>
+          <View key={index} className="flex-row bg-white p-3 rounded-lg mb-2">
+            <Text className="text-base font-semibold text-gray-600 mr-2">{index + 1}.</Text>
+            <Text className="flex-1 text-base text-gray-800">{step}</Text>
           </View>
         ))}
       </View>
 
-      <View style={styles.actions}>
+      <View className="flex-row gap-3 mt-4 mb-8">
         <Button
           title="Edit"
           onPress={handleEdit}
           variant="secondary"
-          style={styles.actionButton}
+          className="flex-1"
         />
         <Button
           title="Delete"
           onPress={handleDelete}
           variant="danger"
-          style={styles.actionButton}
+          className="flex-1"
         />
       </View>
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5F5F5',
-  },
-  centerContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5F5F5',
-    padding: 16,
-  },
-  content: {
-    padding: 16,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: '#333',
-    marginBottom: 8,
-  },
-  date: {
-    fontSize: 14,
-    color: '#666',
-    marginBottom: 24,
-  },
-  section: {
-    marginBottom: 24,
-  },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#333',
-    marginBottom: 12,
-  },
-  ingredientItem: {
-    backgroundColor: '#FFF',
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: 8,
-  },
-  ingredientText: {
-    fontSize: 16,
-    color: '#333',
-  },
-  stepItem: {
-    flexDirection: 'row',
-    backgroundColor: '#FFF',
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: 8,
-  },
-  stepNumber: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#666',
-    marginRight: 8,
-  },
-  stepText: {
-    flex: 1,
-    fontSize: 16,
-    color: '#333',
-  },
-  actions: {
-    flexDirection: 'row',
-    gap: 12,
-    marginTop: 16,
-    marginBottom: 32,
-  },
-  actionButton: {
-    flex: 1,
-  },
-  errorText: {
-    fontSize: 18,
-    color: '#666',
-    marginBottom: 16,
-  },
-});

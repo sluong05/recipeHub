@@ -11,31 +11,35 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "expo": "~54.0.0",
-    "expo-status-bar": "~3.0.8",
-    "react": "19.1.0",
-    "react-native": "0.81.5",
+    "@react-native-async-storage/async-storage": "2.2.0",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/stack": "^6.3.20",
-    "react-native-screens": "~4.16.0",
-    "react-native-safe-area-context": "~5.6.0",
+    "expo": "~54.0.0",
+    "expo-status-bar": "~3.0.8",
+    "nativewind": "^4.2.1",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
     "react-native-gesture-handler": "~2.28.0",
-    "@react-native-async-storage/async-storage": "2.2.0"
+    "react-native-safe-area-context": "~5.6.0",
+    "react-native-screens": "~4.16.0",
+    "tailwindcss": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "babel-preset-expo": "~54.0.0",
+    "@testing-library/react-native": "^12.3.2",
+    "@types/jest": "^29.5.5",
     "@types/react": "~19.1.10",
     "@types/react-native": "^0.73.0",
-    "@types/jest": "^29.5.5",
-    "typescript": "~5.9.2",
+    "babel-preset-expo": "~54.0.0",
     "jest": "^29.7.0",
-    "@testing-library/react-native": "^12.3.2",
-    "react-test-renderer": "19.1.0"
+    "react-test-renderer": "19.1.0",
+    "typescript": "~5.9.2"
   },
   "jest": {
     "preset": "react-native",
-    "setupFilesAfterEnv": ["<rootDir>/tests/setup.ts"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup.ts"
+    ],
     "transformIgnorePatterns": [
       "node_modules/(?!(@react-native|react-native|expo|@expo|@react-navigation)/)"
     ],

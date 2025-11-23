@@ -1,12 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import {
-  View,
-  ScrollView,
-  StyleSheet,
-  Text,
-  Alert,
-  ActivityIndicator,
-} from 'react-native';
+import { View, ScrollView, Text, Alert, ActivityIndicator } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
@@ -169,14 +162,14 @@ export const EditRecipeScreen: React.FC<EditRecipeScreenProps> = ({
 
   if (loading) {
     return (
-      <View style={styles.centerContainer}>
+      <View className="flex-1 justify-center items-center bg-gray-100">
         <ActivityIndicator size="large" color="#007AFF" />
       </View>
     );
   }
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+    <ScrollView className="flex-1 bg-gray-100" contentContainerClassName="p-4">
       <Input
         label="Recipe Title"
         value={title}
@@ -184,18 +177,18 @@ export const EditRecipeScreen: React.FC<EditRecipeScreenProps> = ({
         placeholder="Enter recipe title"
       />
 
-      <Text style={styles.sectionTitle}>Ingredients</Text>
+      <Text className="text-xl font-bold text-gray-800 mt-6 mb-4">Ingredients</Text>
       {ingredients.map((ingredient, index) => (
-        <View key={ingredient.id} style={styles.ingredientContainer}>
-          <Text style={styles.itemNumber}>{index + 1}.</Text>
-          <View style={styles.ingredientInputs}>
+        <View key={ingredient.id} className="flex-row items-start mb-3">
+          <Text className="text-base font-semibold text-gray-600 mt-3 mr-2">{index + 1}.</Text>
+          <View className="flex-1 flex-row gap-2">
             <Input
               value={ingredient.name}
               onChangeText={(value) =>
                 updateIngredient(ingredient.id, 'name', value)
               }
               placeholder="Name"
-              style={styles.ingredientName}
+              className="flex-[2]"
             />
             <Input
               value={ingredient.qty.toString()}
@@ -204,7 +197,7 @@ export const EditRecipeScreen: React.FC<EditRecipeScreenProps> = ({
               }
               placeholder="Qty"
               keyboardType="decimal-pad"
-              style={styles.ingredientQty}
+              className="flex-1"
             />
             <Input
               value={ingredient.unit}
@@ -212,7 +205,7 @@ export const EditRecipeScreen: React.FC<EditRecipeScreenProps> = ({
                 updateIngredient(ingredient.id, 'unit', value)
               }
               placeholder="Unit"
-              style={styles.ingredientUnit}
+              className="flex-1"
             />
           </View>
           {ingredients.length > 1 && (
@@ -220,18 +213,18 @@ export const EditRecipeScreen: React.FC<EditRecipeScreenProps> = ({
               title="Remove"
               onPress={() => removeIngredient(ingredient.id)}
               variant="danger"
-              style={styles.removeButton}
+              className="ml-2 mt-2 py-2 px-3"
             />
           )}
         </View>
       ))}
       <Button title="Add Ingredient" onPress={addIngredient} variant="secondary" />
 
-      <Text style={styles.sectionTitle}>Steps</Text>
+      <Text className="text-xl font-bold text-gray-800 mt-6 mb-4">Steps</Text>
       {steps.map((step, index) => (
-        <View key={index} style={styles.stepContainer}>
-          <Text style={styles.itemNumber}>{index + 1}.</Text>
-          <View style={styles.stepInput}>
+        <View key={index} className="flex-row items-start mb-3">
+          <Text className="text-base font-semibold text-gray-600 mt-3 mr-2">{index + 1}.</Text>
+          <View className="flex-1">
             <Input
               value={step}
               onChangeText={(value) => updateStep(index, value)}
@@ -244,98 +237,26 @@ export const EditRecipeScreen: React.FC<EditRecipeScreenProps> = ({
               title="Remove"
               onPress={() => removeStep(index)}
               variant="danger"
-              style={styles.removeButton}
+              className="ml-2 mt-2 py-2 px-3"
             />
           )}
         </View>
       ))}
       <Button title="Add Step" onPress={addStep} variant="secondary" />
 
-      <View style={styles.actions}>
+      <View className="flex-row gap-3 mt-8 mb-8">
         <Button
           title="Cancel"
           onPress={() => navigation.goBack()}
           variant="secondary"
-          style={styles.actionButton}
+          className="flex-1"
         />
         <Button
           title={saving ? 'Saving...' : 'Save Changes'}
           onPress={handleSave}
-          style={styles.actionButton}
+          className="flex-1"
         />
       </View>
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5F5F5',
-  },
-  centerContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5F5F5',
-  },
-  content: {
-    padding: 16,
-  },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#333',
-    marginTop: 24,
-    marginBottom: 16,
-  },
-  ingredientContainer: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    marginBottom: 12,
-  },
-  itemNumber: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#666',
-    marginTop: 12,
-    marginRight: 8,
-  },
-  ingredientInputs: {
-    flex: 1,
-    flexDirection: 'row',
-    gap: 8,
-  },
-  ingredientName: {
-    flex: 2,
-  },
-  ingredientQty: {
-    flex: 1,
-  },
-  ingredientUnit: {
-    flex: 1,
-  },
-  stepContainer: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    marginBottom: 12,
-  },
-  stepInput: {
-    flex: 1,
-  },
-  removeButton: {
-    marginLeft: 8,
-    marginTop: 8,
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-  },
-  actions: {
-    flexDirection: 'row',
-    gap: 12,
-    marginTop: 32,
-    marginBottom: 32,
-  },
-  actionButton: {
-    flex: 1,
-  },
-});
