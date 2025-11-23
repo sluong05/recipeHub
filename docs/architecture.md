@@ -8,6 +8,7 @@
 - **TypeScript** `~5.9.2`: Type-safe development
 - **React** `19.1.0`: UI library
 - **React Navigation** `6.1.9`: Navigation management
+- **NativeWind**: Tailwind CSS for React Native
 
 ### Key Dependencies
 - `@react-navigation/native` `6.1.9` - Navigation framework
@@ -17,6 +18,8 @@
 - `react-native-screens` `~4.16.0` - Native screen optimization
 - `react-native-safe-area-context` `~5.6.0` - Safe area handling
 - `expo-status-bar` `~3.0.8` - Status bar component
+- `nativewind` - Tailwind CSS utility-first styling
+- `tailwindcss` `3.3.2` - CSS framework for NativeWind
 
 ### Development Tools
 - **Jest** `29.7.0`: Testing framework
@@ -61,7 +64,10 @@ recipeStorage/
 ├── app.json                     # Expo configuration
 ├── package.json                 # Dependencies
 ├── tsconfig.json                # TypeScript config
-└── babel.config.js              # Babel config
+├── babel.config.js              # Babel config
+├── tailwind.config.js           # Tailwind CSS configuration
+├── global.css                   # Tailwind CSS directives
+└── nativewind-env.d.ts          # NativeWind TypeScript definitions
 ```
 
 ## Architecture Patterns
@@ -71,6 +77,7 @@ recipeStorage/
 - **Separation of Concerns**: UI, business logic, and data separated
 - **Reusability**: Shared components in `/components`
 - **Props Typing**: Strong TypeScript typing for all props
+- **Styling**: NativeWind (Tailwind CSS) utility classes via `className` prop
 
 ### 2. Navigation Pattern
 - **Stack Navigation**: Used for hierarchical screen flow
@@ -88,6 +95,19 @@ User Input → Screen Component → Storage Layer → AsyncStorage
 - **Local State**: React useState for component state
 - **No Global State**: Simple app doesn't require Redux/MobX
 - **Persistent State**: AsyncStorage for data persistence
+
+### 5. Styling Architecture
+- **NativeWind**: Tailwind CSS utility-first styling for React Native
+- **Utility Classes**: All styling done via `className` prop
+- **Responsive Design**: Tailwind's responsive utilities
+- **No StyleSheet**: Replaced React Native StyleSheet with Tailwind classes
+- **Consistency**: Unified styling approach across all components and screens
+- **Color Palette**:
+  - Primary: `bg-blue-500` (buttons)
+  - Secondary: `bg-gray-500` (secondary actions)
+  - Danger: `bg-red-500` (delete/remove actions)
+  - Backgrounds: `bg-gray-100` (screens), `bg-white` (cards/inputs)
+  - Text: `text-gray-800` (primary), `text-gray-600` (secondary), `text-gray-400` (tertiary)
 
 ## Component Descriptions
 

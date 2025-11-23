@@ -21,10 +21,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - TypeScript types and models
 - Unit tests for storage and parser utilities
 - Project documentation (requirements, architecture, roadmap, data model)
+- NativeWind (Tailwind CSS) for styling all components and screens
+- Tailwind configuration files (tailwind.config.js, global.css)
+- NativeWind TypeScript definitions (nativewind-env.d.ts)
 
 ### Changed
 - Rebranded project name to RecipeHub
 - Updated documentation with correct version numbers
+- Migrated all components from React Native StyleSheet to NativeWind/Tailwind CSS
+- Replaced `style` props with `className` props across all components and screens
+- Updated architecture documentation to reflect NativeWind integration
+- Updated Babel configuration to include NativeWind plugin
+
+### Removed
+- All StyleSheet.create() usage in favor of Tailwind utility classes
+- Legacy inline styles in components
 
 ### Fixed
 - Version numbers in markdown documentation files

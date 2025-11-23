@@ -1,11 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import {
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  ActivityIndicator,
-} from 'react-native';
+import { View, FlatList, Text, ActivityIndicator } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Recipe } from '../models/Recipe';
@@ -52,23 +46,23 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
 
   if (loading) {
     return (
-      <View style={styles.centerContainer}>
+      <View className="flex-1 justify-center items-center bg-gray-100">
         <ActivityIndicator size="large" color="#007AFF" />
       </View>
     );
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>My Recipes</Text>
+    <View className="flex-1 bg-gray-100">
+      <View className="p-4 bg-white border-b border-gray-200">
+        <Text className="text-3xl font-bold text-gray-800 mb-4">My Recipes</Text>
         <Button title="Add Recipe" onPress={handleAddRecipe} />
       </View>
 
       {recipes.length === 0 ? (
-        <View style={styles.emptyContainer}>
-          <Text style={styles.emptyText}>No recipes yet</Text>
-          <Text style={styles.emptySubtext}>
+        <View className="flex-1 justify-center items-center p-8">
+          <Text className="text-xl font-semibold text-gray-600 mb-2">No recipes yet</Text>
+          <Text className="text-sm text-gray-400 text-center">
             Tap "Add Recipe" to create your first recipe
           </Text>
         </View>
@@ -79,54 +73,9 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
           renderItem={({ item }) => (
             <RecipeCard recipe={item} onPress={() => handleRecipePress(item)} />
           )}
-          contentContainerStyle={styles.listContent}
+          className="p-4"
         />
       )}
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5F5F5',
-  },
-  centerContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5F5F5',
-  },
-  header: {
-    padding: 16,
-    backgroundColor: '#FFF',
-    borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0',
-  },
-  headerTitle: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: '#333',
-    marginBottom: 16,
-  },
-  listContent: {
-    padding: 16,
-  },
-  emptyContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 32,
-  },
-  emptyText: {
-    fontSize: 20,
-    fontWeight: '600',
-    color: '#666',
-    marginBottom: 8,
-  },
-  emptySubtext: {
-    fontSize: 14,
-    color: '#999',
-    textAlign: 'center',
-  },
-});

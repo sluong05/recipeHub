@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  View,
-  ScrollView,
-  StyleSheet,
-  Text,
-  Alert,
-} from 'react-native';
+import { View, ScrollView, Text, Alert, TextInput } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { parseRecipeJSON, parseRecipeText } from '../utils/recipeParser';
 import { saveRecipe } from '../storage/recipeStorage';
@@ -63,24 +57,24 @@ export const ImportRecipeScreen: React.FC<ImportRecipeScreenProps> = ({
   };
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <Text style={styles.title}>Import Recipe</Text>
-      <Text style={styles.subtitle}>
+    <ScrollView className="flex-1 bg-gray-100" contentContainerClassName="p-4">
+      <Text className="text-2xl font-bold text-gray-800 mb-2">Import Recipe</Text>
+      <Text className="text-sm text-gray-600 mb-6">
         This feature is under development (P1 priority)
       </Text>
 
-      <View style={styles.typeSelector}>
+      <View className="flex-row gap-3 mb-6">
         <Button
           title="Text"
           onPress={() => setImportType('text')}
           variant={importType === 'text' ? 'primary' : 'secondary'}
-          style={styles.typeButton}
+          className="flex-1"
         />
         <Button
           title="JSON"
           onPress={() => setImportType('json')}
           variant={importType === 'json' ? 'primary' : 'secondary'}
-          style={styles.typeButton}
+          className="flex-1"
         />
       </View>
 
@@ -94,63 +88,22 @@ export const ImportRecipeScreen: React.FC<ImportRecipeScreenProps> = ({
             : 'Paste recipe text here...'
         }
         multiline
-        style={styles.textArea}
+        className="min-h-[200px]"
       />
 
-      <View style={styles.actions}>
+      <View className="flex-row gap-3 mt-6">
         <Button
           title="Cancel"
           onPress={() => navigation.goBack()}
           variant="secondary"
-          style={styles.actionButton}
+          className="flex-1"
         />
         <Button
           title="Import"
           onPress={handleImport}
-          style={styles.actionButton}
+          className="flex-1"
         />
       </View>
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5F5F5',
-  },
-  content: {
-    padding: 16,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: '#333',
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 14,
-    color: '#666',
-    marginBottom: 24,
-  },
-  typeSelector: {
-    flexDirection: 'row',
-    gap: 12,
-    marginBottom: 24,
-  },
-  typeButton: {
-    flex: 1,
-  },
-  textArea: {
-    minHeight: 200,
-    textAlignVertical: 'top',
-  },
-  actions: {
-    flexDirection: 'row',
-    gap: 12,
-    marginTop: 24,
-  },
-  actionButton: {
-    flex: 1,
-  },
-});
